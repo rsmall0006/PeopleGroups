@@ -2,6 +2,7 @@ package com.theironyard.novauc.controllers;
 
 import com.theironyard.novauc.entities.Person;
 import com.theironyard.novauc.services.PersonRepository;
+import io.swagger.annotations.Api;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -12,6 +13,7 @@ import java.util.List;
  * Created by Merlin on 3/17/17.
  */
 @RestController
+@Api(value="PeopleGroups", description = "PeopleGroups for consuming data from Restful API")
 public class PeopleGroupsController {
 
     @Autowired
