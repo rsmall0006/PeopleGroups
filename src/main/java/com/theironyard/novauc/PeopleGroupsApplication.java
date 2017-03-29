@@ -34,8 +34,8 @@ public class PeopleGroupsApplication {
 	}
 	private ApiInfo metaData() {
 		ApiInfo apiInfo = new ApiInfo(
-				"Spring Boot REST API",
-				"Spring Boot REST API for Online Store",
+				"PeopleGroups by Ross Small",
+				"PeopleGroups Rest API",
 				"1.0",
 				"Terms of service",
 				 "Ross Small, https://github.com/rsmall0006, rsmall0006@email.vccs.edu",
