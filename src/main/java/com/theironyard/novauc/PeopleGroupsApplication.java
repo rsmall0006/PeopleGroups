@@ -14,8 +14,6 @@ import springfox.documentation.service.ApiInfo;
 
 @SpringBootApplication
 @EnableSwagger2
-
-
 public class PeopleGroupsApplication {
 
 	public static void main(String[] args) {

@@ -4,9 +4,14 @@ import com.theironyard.novauc.entities.Person;
 import com.theironyard.novauc.services.PersonRepository;
 import io.swagger.annotations.Api;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.Authentication;
+import org.springframework.security.core.context.SecurityContextHolder;
+import org.springframework.security.web.authentication.logout.SecurityContextLogoutHandler;
 import org.springframework.web.bind.annotation.*;
 
 import javax.annotation.PostConstruct;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 import java.util.List;
 
 /**
@@ -18,6 +23,35 @@ public class PeopleGroupsController {
 
     @Autowired
     PersonRepository people;
+
+
+
+
+
+    @RequestMapping(value="/")
+    public String jspIndex() {
+        return "This is my home page";
+    }
+/*    @RequestMapping(value = "/login")
+    public String login() {
+        return "login";
+    }
+*/
+
+    @RequestMapping(value = "/logout")
+    public String logout(HttpServletRequest request, HttpServletResponse response) {
+        Authentication auth = SecurityContextHolder.getContext().getAuthentication();
+        if (auth != null) {
+            new SecurityContextLogoutHandler().logout(request, response, auth);
+        }
+        request.setAttribute("logout", "logout");
+        return "login";
+
+    }
+
+
+
+
 
     @RequestMapping(path = "/person", method = RequestMethod.GET)
     public List<Person> getUsers() {
